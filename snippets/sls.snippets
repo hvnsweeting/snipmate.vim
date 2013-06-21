@@ -1,0 +1,51 @@
+snippet file
+	${1:name}:
+	  file:
+		- ${2:managed}
+		- template: jinja
+		- source: salt://${3:path}
+		${4}
+
+snippet pkg
+	${1:name}:
+	  pkg:
+	    - ${2:installed}
+		${3}
+		
+snippet service
+	service:
+	  - ${1:running}
+	  - require:
+	    - ${2}
+
+snippet cmd
+	${1:name}:
+	  cmd:
+	    - run
+	    ${2}
+
+snippet cmdw
+	${1:name}:
+	  cmd:
+	    - wait
+	    - watch:
+	      - ${2}
+
+snippet git
+	${1:name}:
+	  git:
+	    - present
+	    - rev: ${2:master}
+	    - target: ${3:/tmp/target}
+	
+snippet virtualenv
+	${1:name}:
+	  virtualenv:
+	    - managed
+	    ${2}
+
+snippet user
+	${1}:
+	  - present
+	  - groups:
+	    ${2}
