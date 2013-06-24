@@ -84,3 +84,14 @@ snippet ifmain
 # __magic__
 snippet _
 	__${1:init}__${2}
+
+# logging to stdin
+snippet login
+	import logging
+	
+	log = logging.getLogger(__name__)
+	log.addHandler(logging.StreamHandler(sys.stdout))
+	log.setLevel(${1:logging.DEBUG})
+	
+	${2}
+
