@@ -1,17 +1,17 @@
 snippet file
 	${1:name}:
 	  file:
-		- ${2:managed}
-		- template: jinja
-		- source: salt://${3:path}
-		${4}
+	    - ${2:managed}
+	    - template: jinja
+	    - source: salt://${3:path}
+	    ${4}
 
 snippet pkg
 	${1:name}:
 	  pkg:
 	    - ${2:installed}
-		${3}
-		
+	    ${3}
+
 snippet service
 	service:
 	  - ${1:running}
@@ -37,7 +37,7 @@ snippet git
 	    - latest
 	    - rev: ${2:master}
 	    - target: ${3:/tmp/target}
-	
+
 snippet virtualenv
 	${1:name}:
 	  virtualenv:
