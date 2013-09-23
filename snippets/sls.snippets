@@ -6,6 +6,14 @@ snippet file
 	    - source: salt://${3:path}
 	    ${4}
 
+snippet file2
+	${1:name}:
+	  file:
+	    - ${2:managed}
+	    - template: jinja2
+	    - source: salt://${3:path}
+	    ${4}
+
 snippet pkg
 	${1:name}:
 	  pkg:
@@ -49,3 +57,9 @@ snippet user
 	  - present
 	  - groups:
 	    ${2}
+
+snippet pill
+	salt['pillar.get']('${1:key}'${2:default}
+
+snippet pillar
+	pillar['${1:key}']${2:subkey}
